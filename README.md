@@ -155,6 +155,14 @@ http://127.0.0.1/Laboratorio-de-Autentificacion-DS7/registro.php
 
 ---
 
+## Conclusiones
+
+La implementación de este laboratorio permitió comprender de forma práctica cómo funciona un sistema de autenticación seguro en PHP. La incorporación del 2FA con Google Authenticator agrega una capa crítica de seguridad que va más allá de la simple validación de usuario y contraseña, protegiendo el acceso incluso si las credenciales son comprometidas.
+
+El uso de tokens CSRF, sanitización de entradas y hashing con bcrypt demostró que la seguridad no es una característica opcional sino una responsabilidad que debe estar presente desde el diseño inicial de cualquier aplicación web.
+
+---
+
 ## Referencias
 
 - Documentacion oficial de Composer: https://getcomposer.org/doc/
@@ -163,10 +171,10 @@ http://127.0.0.1/Laboratorio-de-Autentificacion-DS7/registro.php
 
 ---
 
-## Informacion del Estudiante
+## Informacion de Estudiantes
 
-- **Nombre: Gabriel Ah Chu**
-- **Correo: gabriel.ahchu@utp.ac.pa**
+- **Integrantes: Gabriel Ah Chu, Idianeth Hanna**
+- **Correos: gabriel.ahchu@utp.ac.pa, idianeth.hanna@utp.ac.pa**
 - **Curso:** Desarrollo de Software 7
 - **Instructor:** Irina Fong
 - **Fecha de Entrega:** 4 de junio de 2026
