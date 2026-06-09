@@ -9,6 +9,7 @@ if (!isset($_SESSION['qr_url']) || !isset($_SESSION['usuario_registro'])) {
 
 $qr_url = $_SESSION['qr_url'];
 $usuario = $_SESSION['usuario_registro'];
+$hash = $_SESSION['hash_generado'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -108,6 +109,34 @@ $usuario = $_SESSION['usuario_registro'];
             margin-bottom: 8px;
             margin-left: 20px;
         }
+
+        .hash-section {
+            background: #f0fff4;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .hash-section h3 {
+            color: #2d6a4f;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .hash-section p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .hash-section .estado {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +164,15 @@ $usuario = $_SESSION['usuario_registro'];
             <li>Listo, ya puedes iniciar sesión</li>
         </ol>
     </div>
+
+    <?php if ($hash): ?>
+    <div class="hash-section">
+        <h3>Hash de Contraseña Generado</h3>
+        <p><strong>Algoritmo:</strong> bcrypt (PASSWORD_BCRYPT)</p>
+        <p><strong>Hash:</strong> <?= htmlspecialchars($hash) ?></p>
+        <p class="estado">Tu contraseña fue protegida correctamente.</p>
+    </div>
+    <?php endif; ?>
 
     <a href="login.php" class="btn">Ir al Login</a>
 </div>

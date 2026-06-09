@@ -34,11 +34,16 @@ try {
         $nombre_usuario = $MyRegistro->getUsuario();
         $nombre_app = 'Lab2FA';
         $otpauth = 'otpauth://totp/' . $nombre_app . ':' . $nombre_usuario . '?secret=' . $secret . '&issuer=' . $nombre_app;
-$qr_url = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' . urlencode($otpauth);
+        $qr_url = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' . urlencode($otpauth);   
 
         // Guardar en sesión para mostrar en la siguiente pantalla
         $_SESSION['qr_url'] = $qr_url;
         $_SESSION['usuario_registro'] = $nombre_usuario;
+
+        // Generar y guardar el hash en sesión para mostrarlo en mostrarQR.php
+        $contrasena = $_POST['contrasena'] ?? '';
+        $hash = password_hash($contrasena, PASSWORD_BCRYPT);
+        $_SESSION['hash_generado'] = $hash;
 
         // Redirigir a pantalla del QR
         header("Location: mostrarQR.php");
